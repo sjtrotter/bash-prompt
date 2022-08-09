@@ -1,5 +1,10 @@
 # available options (copy/paste in, with spaces between): USERATHOST USERNAME HOST VTY DIR $(if [[ SSH_CLIENT ]]; then printf "SSH"; fi)
+
 PROMPT_ORDER="USERNAME AT HOST $(if [[ $SSH_CLIENT ]]; then printf "SSH"; fi) DIR"
+
+# Other Examples
+# PROMPT_ORDER="USERATHOST DIR"
+# PROMPT_ORDER="VTY HOST DIR"
 
 function prompt () {
     rc=$?
