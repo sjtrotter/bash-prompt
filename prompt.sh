@@ -22,10 +22,10 @@ function prompt () {
         HOST_FG="\001\033[0m\002"
         HOST_BG="\001\033[94m\002"
         HOST_FG_BG="\001\033[0m\002"
-		USERNAME_FG="\001\033[0m\002"
+        USERNAME_FG="\001\033[0m\002"
         USERNAME_BG="\001\033[$(if [[ $UID -eq 0 ]]; then printf 91; else printf 92; fi)m\002"
         USERNAME_FG_BG="\001\033[0m\002"
-		USERATHOST_FG="\001\033[0m\002"
+        USERATHOST_FG="\001\033[0m\002"
         USERATHOST_BG="\001\033[$(if [[ $UID -eq 0 ]]; then printf 91; else printf 92; fi)m\002"
         USERATHOST_FG_BG="\001\033[0m\002"
         OPEN_CHAR="<<"
@@ -56,10 +56,10 @@ function prompt () {
         HOST_FG="\001$(tput setaf 33)\002"
         HOST_BG="\001$(tput setab 15)\002"
         HOST_FG_BG="\001$(tput setab 33)\002"
-		USERNAME_FG="\001$(tput setaf $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
+        USERNAME_FG="\001$(tput setaf $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
         USERNAME_BG="\001$(tput setab 15)\002"
         USERNAME_FG_BG="\001$(tput setab $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
-		USERATHOST_FG="\001$(tput setaf $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
+        USERATHOST_FG="\001$(tput setaf $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
         USERATHOST_BG="\001$(tput setab 15)\002"
         USERATHOST_FG_BG="\001$(tput setab $(if [[ $UID -eq 0 ]]; then printf 196; else printf 34; fi))\002"
         OPEN_CHAR='\U0e0b3'
@@ -88,13 +88,13 @@ function prompt () {
         DIR="${DIR}${DIR_CHAR} ${dir} "
     done
 
-	usr="$USER"
-	USERNAME="${USERNAME_FG}${USERNAME_BG}${BOLD} ${usr} "
+    usr="$USER"
+    USERNAME="${USERNAME_FG}${USERNAME_BG}${BOLD} ${usr} "
 
     host=$(hostname)
     HOST="${HOST_FG}${HOST_BG}${BOLD} ${host} "
 
-	AT="${AT_FG}${AT_BG}${BOLD} @ "
+    AT="${AT_FG}${AT_BG}${BOLD} @ "
 
     vty=$(tty | sed 's|/dev/||g')
     VTY="${VTY_FG}${VTY_BG}${BOLD} ${vty} "
@@ -107,7 +107,7 @@ function prompt () {
 #${fg}${OPEN_CHAR_FILL}
     PROMPT="${PROMPT_START}"
     first=1
-	fgbg=
+    fgbg=
     for section in ${PROMPT_ORDER}; do
         LAST_FG=$fg
         LAST_BG=$bg
