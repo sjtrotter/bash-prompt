@@ -79,6 +79,8 @@ function prompt () {
         GREEN="\001$(tput setaf 118)\002"
     fi
 
+    TPUT_ORANGE=$(($(tput colors) < 256 ? 3 : 208))
+
     #TOP_BAR="\U0250c\U02500"
     TOP_BAR="${BOLD}\U2500"
     #BOT_BAR="\U02514\U02500"
@@ -132,6 +134,7 @@ function prompt () {
     PROMPT="${PROMPT}${fg}${CLOSE_CHAR_FILL}${CLEAR}${BOLD}$(if [[ $rc == 0 ]]; then printf ${GREEN}; else printf ${RED}; fi)${CLOSE_CHAR}"
     PS1=$(printf "${PROMPT}${CLEAR} ")
     #PS1="${PROMPT}${CLEAR} "
+    PS0="\$(tput cuu 1; tput cuf $(tput cols); tput cub 20; printf ' @ [';)$(tput setaf $TPUT_ORANGE)\D{%F %H:%M}$(tput sgr0)]\n"
     # PS1="$(printf "\U02514")\[${BOLD}$(if [[ $rc == 0 ]]; then printf ${GREEN}; else printf ${RED}; fi)\]\[$(printf "${OPEN_CHAR}${CLOSE_CHAR}")\]\[${CLEAR}\]"
 }
 
